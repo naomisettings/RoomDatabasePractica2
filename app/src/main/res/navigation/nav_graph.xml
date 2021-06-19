@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/registre">
+    <fragment
+        android:id="@+id/registre"
+        android:name="cat.copernic.raimonsellares.recuperaciouf1_raimon_sellares.registre.RegistreFragment"
+        android:label="registre"
+        tools:layout="@layout/fragment_registre">
+        <action
+            android:id="@+id/action_registre_to_loginFramgent"
+            app:destination="@id/loginFramgent" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFramgent"
+        android:name="cat.copernic.raimonsellares.recuperaciouf1_raimon_sellares.login.LoginFramgent"
+        android:label="LoginFramgent"
+        tools:layout="@layout/fragment_login_framgent">
+        <action
+            android:id="@+id/action_loginFramgent_to_registre"
+            app:destination="@id/registre" />
+        <action
+            android:id="@+id/action_loginFramgent_to_principalFragment"
+            app:destination="@id/principalFragment" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            android:defaultValue="username" />
+    </fragment>
+    <fragment
+        android:id="@+id/principalFragment"
+        android:name="cat.copernic.raimonsellares.recuperaciouf1_raimon_sellares.principal.PrincipalFragment"
+        android:label="PrincipalFragment"
+        tools:layout="@layout/fragment_principal">
+        <argument
+            android:name="username"
+            app:argType="string"
+            android:defaultValue="username" />
+        <action
+            android:id="@+id/action_principalFragment_to_loginFramgent"
+            app:destination="@id/loginFramgent" />
+    </fragment>
+</navigation>
